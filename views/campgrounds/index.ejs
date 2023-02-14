@@ -1,0 +1,31 @@
+<% layout("layouts/boilerplate") %>
+
+<h1>Current Campgrounds</h1>
+<div>
+  <a href="/campgrounds/new">Add Camoground</a>
+</div>
+
+<% for(let campground of campgrounds){ %>
+<div class="card mb-3">
+  <div class="row">
+    <div class="col-md-4">
+      <img
+        class="img-fluid"
+        src="https://media.istockphoto.com/id/1213691432/photo/tourists-sitting-near-campfire-under-starry-sky.jpg?s=612x612&w=0&k=20&c=6B2GdQROSabFQKrerTaYHaplaCU2UwiOFokyUW6hEp0= "
+        alt=""
+      />
+    </div>
+    <div class="col-md-8">
+      <h5><%= campground.name %></h5>
+      <p class="card-title"><%= campground.description %></p>
+      <p class="card-text"><b><%= campground.location %></b></p>
+      <p class="card-text"><%= campground.price %></p>
+      <a
+        class="btn btn-secondary mb-3"
+        href="/campgrounds/<%= campground._id %> "
+        >View <%= campground.name %>
+      </a>
+    </div>
+  </div>
+</div>
+<% } %>
